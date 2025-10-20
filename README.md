@@ -9,6 +9,7 @@ And for those unfortunate enough to run into these errors:
 Err01: File not found 
 Err02:  Syntax error in inputted command
 Err03: This one is specific to the EXEC command. It means it could be a file not found error or an syntax error in your python code.
+Err04: file already exists. 
 And if I do something wrong you should get a crash report. It will say something like this:
 pios encountered a critical error. Please contact the dev on GitHub.
 —--------------------------------------------------
