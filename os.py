@@ -1,10 +1,12 @@
-ver="dv_1.0"
+ver="dv_1.1"
 try:
     command='inSetup'
     def help():print('commands:\nhelp:\tshow help\nnew:\tnew file\nexec:\trun python file\nread:\tshow file contents\ninfo:\tshow info\nQ:\tQuit')
     def new(file,text):
-        filet=open(file,"x")
-        filet.write(text)
+        try:
+            filet=open(file,"x")
+            filet.write(text)
+        except:print('err 04')
     def execy(file):
         try:
             e=open(file,"r")
@@ -36,3 +38,4 @@ try:
         else:
             print("err02")
 except:yy=input('pios has run in to a cratical error. send error report to dev on gethub.\n'+'-'*20+"\ncommandFail: "+command+' ver: '+ver)
+
