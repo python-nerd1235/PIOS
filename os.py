@@ -1,6 +1,7 @@
-ver="dv_1.1"
+ver="dv_1.2"
+num=0
 try:
-    command='inSetup'
+    command='SetupFail'
     def help():print('commands:\nhelp:\tshow help\nnew:\tnew file\nexec:\trun python file\nread:\tshow file contents\ninfo:\tshow info\nQ:\tQuit')
     def new(file,text):
         try:
@@ -18,7 +19,16 @@ try:
     def info(file):
         t=open(file,"r")
         print(t)
+    print('checking for log file...')
+    try:
+        log=open("commandLog","w")
+        logTrue="log file alredy on disk."
+    except:
+        log=open("commandLog","x")
+        logTrue="log file made."
+    print(logTrue)
     print('welcome to pios!\nver: '+ver)
+    
     while True:
         command=input("usr~$")
         if command=='help':
@@ -37,5 +47,14 @@ try:
             break
         else:
             print("err02")
-except:yy=input('pios has run in to a cratical error. send error report to dev on gethub.\n'+'-'*20+"\ncommandFail: "+command+' ver: '+ver)
+        cl=command
+        command="logFail"
+        try:
+            log=open("commandLog","x")
+            log.write("log start\n<logEntry#"+str(num)+"command:"+cl+'ver:'+ver+'>' )
+        except:
+            log=open('commandLog',"a")
+            log.write("<logEntry#"+str(num)+"command:"+cl+'>\n' )
+        num+=1
+except typeError:yy=input('pios has run in to a cratical error. send error report to dev on gethub.\n'+'-'*20+"\ncommandFail: "+command+' ver: '+ver)
 
